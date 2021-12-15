@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require('cors');
-const dotenv = require('dotenv');
-dotenv.config();
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -30,14 +28,14 @@ app.use(cookieParser());
 app.use('/uploads', express.static('uploads'));
 
 // 리액트 정적 파일 제공
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 // 라우트 설정
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server Listening on ${port}`)

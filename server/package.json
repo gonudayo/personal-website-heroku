@@ -1,20 +1,20 @@
 {
-  "name": "react-boiler-plate",
+  "name": "gunwoo",
   "version": "1.0.0",
-  "description": "react boiler plate",
+  "description": "server",
   "main": "index.js",
   "engine": {
-    "node": "10.16.0",
-    "npm": "6.9.0"
+    "node": "14.17.6",
+    "npm": "6.14.15"
   },
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node index.js",
     "backend": "nodemon server/index.js",
     "frontend": "npm run start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run start --prefix client\"",
 	"heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "author": "John ahn",
+  "author": "Gunwoo Kim",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
