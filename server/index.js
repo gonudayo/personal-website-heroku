@@ -29,6 +29,14 @@ app.use(cookieParser());
 
 app.use('/uploads', express.static('uploads'));
 
+// 리액트 정적 파일 제공
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// 라우트 설정
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {
