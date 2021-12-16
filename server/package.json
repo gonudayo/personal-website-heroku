@@ -1,5 +1,5 @@
 {
-  "name": "gunwoo",
+  "name": "server",
   "version": "1.0.0",
   "description": "server",
   "main": "index.js",
@@ -12,12 +12,14 @@
     "backend": "nodemon server/index.js",
     "frontend": "npm run start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run start --prefix client\"",
-	"heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Gunwoo Kim",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.10",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "debug": "^4.1.1",

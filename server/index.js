@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require('cors');
+const env = require('dotenv');
+env.config();
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -26,6 +28,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/uploads', express.static('uploads'));
+
+app.use('/api/test', require('./routes/test'));
 
 // 리액트 정적 파일 제공
 app.use(express.static(path.join(__dirname, "/client/build")));
