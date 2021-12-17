@@ -6,18 +6,25 @@ function MainPage() {
 	const [Grass, setGrass] = useState([]);
 	
 	useEffect(() => {
-		Axios.get('/api/test/').then((response) => {
+		Axios.get('/api/charts/github').then((response) => {
 			if (response.data.success) {
 				setGrass(response.data.arr);
 			} else {
-				console.log(response.data.success)
+				alert('Failed.');
+			}
+		});
+		
+		Axios.get('/api/charts/baekjoon').then((response) => {
+			if (response.data.success) {
+				setGrass(response.data.arr);
+			} else {
 				alert('Failed.');
 			}
 		});
 	}, []);
 	
 	return (
-		<div className="app">
+		<div >
 			<span style={{ fontSize: '2rem' }}>김건우</span>
 			<br />
 			<span style={{ fontSize: '2rem' }}>소개</span>

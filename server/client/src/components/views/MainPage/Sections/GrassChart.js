@@ -2,7 +2,17 @@ import React from 'react';
 import { ResponsiveCalendar } from '@nivo/calendar';
 
 function GrassChart(props) {
-	props.data && props.data.reverse();
+	const CustomTooltip = data => {
+   if (data.value === undefined) return null    
+		return (
+       <span style={{ color: data.color, backgroundColor: 'black', padding: '10px' }}>
+            {data.day} 총합 : {data.value}<br />
+			깃허브 : {data.github}<br />
+			백준 : {data.baekjoon}
+        </span>
+    )
+}
+	
 	return (
 		<div className="" style={{ height: 1000 }}>
 			{props.data && (
