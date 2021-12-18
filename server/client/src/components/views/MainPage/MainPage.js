@@ -16,7 +16,7 @@ function MainPage() {
 		
 		Axios.get('/api/charts/baekjoon').then((response) => {
 			if (response.data.success) {
-				setGrass(response.data.arr);
+				console.log(response.data.arr);
 			} else {
 				alert('Failed.');
 			}

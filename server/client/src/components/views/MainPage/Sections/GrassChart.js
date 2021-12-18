@@ -2,19 +2,27 @@ import React from 'react';
 import { ResponsiveCalendar } from '@nivo/calendar';
 
 function GrassChart(props) {
-	const CustomTooltip = data => {
-   if (data.value === undefined) return null    
+	const CalTooltip: React.FunctionComponent<CalendarDayData> = (props) => {
 		return (
-       <span style={{ color: data.color, backgroundColor: 'black', padding: '10px' }}>
-            {data.day} 총합 : {data.value}<br />
-			깃허브 : {data.github}<br />
-			백준 : {data.baekjoon}
-        </span>
-    )
-}
-	
+			<div
+				style={{
+					padding: 12,
+					color: props.color,
+					background: '#222222',
+				}}
+			>
+				<span>{props.day}: {props.value}</span>
+				<br />
+				<strong>
+					 깃허브 : {props.commit} 백준 : {props.solve}
+				</strong>
+			</div>
+		);
+	};
+
 	return (
 		<div className="" style={{ height: 1000 }}>
+			{props.data && console.log(props.data)}
 			{props.data && (
 				<ResponsiveCalendar
 					data={props.data}
@@ -33,6 +41,7 @@ function GrassChart(props) {
 					monthLegendOffset={10}
 					dayBorderWidth={2}
 					dayBorderColor="#ffffff"
+					tooltip={CalTooltip}
 					legends={[
 						{
 							anchor: 'bottom-right',
