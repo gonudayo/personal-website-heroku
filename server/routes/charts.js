@@ -6,6 +6,8 @@ const map1 = new Map();
 
 router.get('/data', async (req, res) => {
 	let arr = [];
+	let totalCommit = 0;
+	let totalSolve = 0;
 
 	const getCommit = async () => {
 		try {
@@ -20,9 +22,10 @@ router.get('/data', async (req, res) => {
 		await parentTag.each(function (i, elem) {
 			let day = $(this).attr('data-date');
 			let count = $(this).attr('data-count') * 1;
-			if (count != 0) map1.set(day, { value: count, commit: count, solve: 0 });
-			if (count != 0) arr.push({ day: day, value: count, commit: count });
-			// console.log(map1.get(day));
+			if (!isNaN(count) && count != 0) {
+				map1.set(day, { value: count, commit: count, solve: 0 });
+				totalCommit += count;
+			}
 		});
 
 		const getSolved = async () => {
@@ -51,6 +54,7 @@ router.get('/data', async (req, res) => {
 							solve: count,
 						});
 					} else map1.set(day, { value: count, commit: 0, solve: count });
+					totalSolve += count;
 					t = '';
 				} else if (str[i] != ',') t += str[i];
 			}
@@ -60,10 +64,14 @@ router.get('/data', async (req, res) => {
 				commit: value.commit,
 				solve: value.solve,
 			}));
+			
+			// api 결과 값 확인
 			// for (var i in array) {
 			// 	console.log(array[i]);
 			// }
-			return res.status(200).json({ success: true, arr: array });
+			// console.log(totalCommit, totalSolve)
+			
+			return res.status(200).json({ success: true, arr: array, commits: totalCommit, solves: totalSolve });
 		});
 	});
 });

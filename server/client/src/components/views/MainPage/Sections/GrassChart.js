@@ -26,7 +26,13 @@ function GrassChart(props) {
 	};
 
 	return (
-		<div className="" style={{ height: 1000 }}>
+		<div style={{ height: 300 }}>
+			{props.data && (
+				<span className="app">
+					<strong style={{ fontSize: '2rem' }}> 깃허브, 백준 활동 내역 차트 </strong>
+					<span> 1년간 총 활동 {props.commits+props.solves} ( 깃허브 : {props.commits} 백준 : {props.solves} )</span>
+				</span>
+			)}
 			{props.data && (
 				<ResponsiveCalendar
 					data={props.data}
@@ -35,10 +41,10 @@ function GrassChart(props) {
 					emptyColor="#eeeeee"
 					colors={['#99FF99', '#32CD32', '#008000', '#006400']}
 					margin={{
-						top: 100,
-						right: 30,
-						bottom: 60,
-						left: 30,
+						top: 40,
+						right: 40,
+						bottom: 40,
+						left: 40,
 					}}
 					yearSpacing={60}
 					monthBorderColor="#000000"
