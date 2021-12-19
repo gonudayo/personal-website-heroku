@@ -7,14 +7,19 @@ function GrassChart(props) {
 			<div
 				style={{
 					padding: 12,
-					color: props.color,
-					background: '#222222',
+					color: 'black',
+					background: 'gray',
+					borderRadius: '5px 5px 5px 5px',
+					boxShadow: '3px 3px 3px gray',
 				}}
 			>
-				<span>{props.day}: {props.value}</span>
+				<strong>
+					<span style={{ color: props.color }}>■ </span>
+					{props.day} 총합: {props.value}
+				</strong>
 				<br />
 				<strong>
-					 깃허브 : {props.commit} 백준 : {props.solve}
+					깃허브 : {props.data.commit} 백준 : {props.data.solve}
 				</strong>
 			</div>
 		);
@@ -22,14 +27,13 @@ function GrassChart(props) {
 
 	return (
 		<div className="" style={{ height: 1000 }}>
-			{props.data && console.log(props.data)}
 			{props.data && (
 				<ResponsiveCalendar
 					data={props.data}
 					from="2021-01-01"
 					to="2021-12-31"
 					emptyColor="#eeeeee"
-					colors={['#61cdbb', '#97e3d5', '#e8c1a0', '#f47560']}
+					colors={['#99FF99', '#32CD32', '#008000', '#006400']}
 					margin={{
 						top: 100,
 						right: 30,
@@ -37,7 +41,7 @@ function GrassChart(props) {
 						left: 30,
 					}}
 					yearSpacing={60}
-					monthBorderColor="#ffffff"
+					monthBorderColor="#000000"
 					monthLegendOffset={10}
 					dayBorderWidth={2}
 					dayBorderColor="#ffffff"

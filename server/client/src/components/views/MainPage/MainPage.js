@@ -6,17 +6,9 @@ function MainPage() {
 	const [Grass, setGrass] = useState([]);
 	
 	useEffect(() => {
-		Axios.get('/api/charts/github').then((response) => {
+		Axios.get('/api/charts/data').then((response) => {
 			if (response.data.success) {
 				setGrass(response.data.arr);
-			} else {
-				alert('Failed.');
-			}
-		});
-		
-		Axios.get('/api/charts/baekjoon').then((response) => {
-			if (response.data.success) {
-				console.log(response.data.arr);
 			} else {
 				alert('Failed.');
 			}
@@ -28,9 +20,7 @@ function MainPage() {
 			<span style={{ fontSize: '2rem' }}>김건우</span>
 			<br />
 			<span style={{ fontSize: '2rem' }}>소개</span>
-			<br />
 			<GrassChart data={Grass} />
-			<br />
 			<span style={{ fontSize: '2rem' }}>링크-위젯들</span>
 			<br />
 			<span style={{ fontSize: '2rem' }}>...</span>
