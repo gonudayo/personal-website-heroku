@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
-const map1 = new Map();
+const { Record } = require('../models/Record');
 
-router.get('/data', async (req, res) => {
+router.get('/study', async (req, res) => {
+	let map1 = new Map();
 	let arr = [];
 	let totalCommit = 0;
 	let totalSolve = 0;
@@ -64,15 +65,27 @@ router.get('/data', async (req, res) => {
 				commit: value.commit,
 				solve: value.solve,
 			}));
-			
+
 			// api 결과 값 확인
 			// for (var i in array) {
 			// 	console.log(array[i]);
 			// }
 			// console.log(totalCommit, totalSolve)
-			
-			return res.status(200).json({ success: true, arr: array, commits: totalCommit, solves: totalSolve });
+
+			return res
+				.status(200)
+				.json({ success: true, arr: array, commits: totalCommit, solves: totalSolve });
 		});
+	});
+});
+
+router.get('/stock', (req, res) => {
+	Record.find(async (err, data) => {
+		if (err) res.status(400).json({ success: false, arr: err });
+		const arr = data.sort(function (a, b) {
+			return a.day < b.day;
+		})
+		return res.status(200).json({ success: true, arr: arr });
 	});
 });
 

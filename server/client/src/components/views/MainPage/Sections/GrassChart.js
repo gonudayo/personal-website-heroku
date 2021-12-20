@@ -26,7 +26,7 @@ function GrassChart(props) {
 	};
 
 	return (
-		<div style={{ height: 300 }}>
+		<div style={{ height: 500 }}>
 			{props.data && (
 				<span className="app">
 					<strong style={{ fontSize: '2rem' }}> 깃허브, 백준 활동 내역 차트 </strong>
