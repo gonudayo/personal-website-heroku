@@ -82,8 +82,9 @@ router.get('/study', async (req, res) => {
 router.get('/stock', (req, res) => {
 	Record.find(async (err, data) => {
 		if (err) res.status(400).json({ success: false, arr: err });
-		const arr = data.sort(function (a, b) {
-			return a.day < b.day;
+		let arr = data;
+		await arr.sort(function (a, b) {
+			return parseInt(a.day.replace(/-/gi, "")) - parseInt(b.day.replace(/-/gi, ""));
 		})
 		return res.status(200).json({ success: true, arr: arr });
 	});

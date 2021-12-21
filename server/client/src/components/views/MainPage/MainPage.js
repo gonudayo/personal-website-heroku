@@ -33,8 +33,8 @@ function MainPage() {
 		<div>
 			<div className="app" style={{ fontSize: '2rem' }}><img style={{ width: '300px', height: 'auto' }} src='/gunwoo.JPG' alt='김건우 초상화' ></img></div>
 			<br />
-			<div className="app" style={{ fontSize: '2rem' }}>"반갑습니다. 만 21세 초신성 개발자 입니다."</div>
-			<br />
+			<div className="app" style={{ fontSize: '2rem' }}><p>"반갑습니다. 만 21세 초신성 개발자 <b>김건우</b> 입니다."</p></div>
+			<br /><br /><br /><br />
 			<GrassChart data={Grass} commits={Commits} solves={Solves} />
 			<div className="app">
 			<br />

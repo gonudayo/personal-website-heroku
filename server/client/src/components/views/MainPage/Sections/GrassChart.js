@@ -7,8 +7,8 @@ function GrassChart(props) {
 			<div
 				style={{
 					padding: 12,
-					color: 'black',
-					background: 'gray',
+					color: 'white',
+					background: '#222222',
 					borderRadius: '5px 5px 5px 5px',
 					boxShadow: '3px 3px 3px gray',
 				}}
@@ -30,7 +30,7 @@ function GrassChart(props) {
 			{props.data && (
 				<span className="app">
 					<strong style={{ fontSize: '2rem' }}> 깃허브, 백준 활동 내역 차트 </strong>
-					<span> 1년간 총 활동 {props.commits+props.solves} ( 깃허브 : {props.commits} 백준 : {props.solves} )</span>
+					<span> 1년간 총 활동 횟수 : {props.commits+props.solves} ( 깃허브 커밋 수 : {props.commits}, 백준 솔브 수 : {props.solves} )</span>
 				</span>
 			)}
 			{props.data && (

@@ -13,14 +13,14 @@ import {
 function StockChart(props) {
 	return (
 		<LineChart
-      width={500}
-      height={300}
+      width={1000}
+      height={500}
       data={props.data}
       margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
+        top: 40,
+        right: 40,
+        left: 40,
+        bottom: 40
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
@@ -29,9 +29,10 @@ function StockChart(props) {
       <Tooltip />
       <Legend />
       <Line
+	    name="Spotify"
         type="monotone"
         dataKey="value"
-        stroke="#8884d8"
+        stroke="#1DB954"
         activeDot={{ r: 8 }}
       />
     </LineChart>
