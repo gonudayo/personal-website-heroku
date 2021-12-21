@@ -84,9 +84,24 @@ router.get('/stock', (req, res) => {
 		if (err) res.status(400).json({ success: false, arr: err });
 		let arr = data;
 		await arr.sort(function (a, b) {
-			return parseInt(a.day.replace(/-/gi, "")) - parseInt(b.day.replace(/-/gi, ""));
-		})
-		return res.status(200).json({ success: true, arr: arr });
+			
+			return parseInt(a.day.replace(/-/gi, '')) - parseInt(b.day.replace(/-/gi, ''));
+		});
+		let asset = arr[arr.length - 1].value;
+		let krw = 0;
+		
+		const getKRW = async () => {
+			try {
+				return await axios.get(
+					'https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD'
+				);
+			} catch (error) {}
+		};
+		await getKRW().then((html) => {
+			asset *= html.data[0].cashSellingPrice * process.env.StockQty;
+		});
+		
+		return res.status(200).json({ success: true, arr: arr, asset: asset });
 	});
 });
 
