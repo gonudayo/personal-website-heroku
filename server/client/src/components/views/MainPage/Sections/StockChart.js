@@ -3,11 +3,17 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 
 function StockChart(props) {
 	return (
-		<div style={{ height: 600 }}>
+		<div style={{ height: 500 }}>
 			{props.data && (
 				<span className="app">
-					<strong style={{ fontSize: '2rem' }}> 스포티파이 주가 </strong>
-					<span> 나의 시가총액 : {props.asset.toFixed(0) * 0} </span>
+					<span style={{ fontSize: '2rem' }}>
+						<b>
+							<a href="https://open.spotify.com/user/tid50r737huqem85120vai83d" target="_blank" rel="noopener noreferrer">
+								스포티파이
+							</a>
+						</b>
+					</span>
+					<span> 나의 시가총액 (전재산) : {props.asset.toFixed(0)} 원 </span>
 				</span>
 			)}
 			<LineChart

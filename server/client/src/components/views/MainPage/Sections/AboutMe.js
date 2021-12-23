@@ -4,7 +4,7 @@ function AboutMe(props) {
 	return (
 		<div>
 			<p>
-				<h2>🤙 Contact me</h2>
+				<h2><span  have role="img" aria-label="call">🤙</span> Contact me</h2>
 				<a href="mailto:kimgunwoo@yahoo.com" target="_blank" rel="noopener noreferrer">
 					<img alt="mail" src="https://img.shields.io/badge/kimgunwoo@yahoo.com-6001D2?style=flat-square&logo=yahoo&logoColor=white" />
 				</a>
@@ -12,17 +12,14 @@ function AboutMe(props) {
 				<a href="https://github.com/gonudayo" target="_blank" rel="noopener noreferrer">
 					<img alt="github" src="https://img.shields.io/badge/github-181717?style=flat-square&logo=GitHub&logoColor=white" />
 				</a>
-				<a href="https://open.spotify.com/user/tid50r737huqem85120vai83d">
-					<img alt="spotify" src="https://img.shields.io/badge/Spotify-1DB954?style=flat-square&logo=spotify&logoColor=white" />
-				</a>
 				<a href="https://velog.io/@gonudayo/" target="_blank" rel="noopener noreferrer">
 					<img alt="velog" src="https://img.shields.io/badge/velog-20c997?style=flat-square&logo=Vimeo&logoColor=white" />
 				</a>
 				<a href="https://blog.naver.com/kgw553" target="_blank" rel="noopener noreferrer">
-					<img alt="naver" src="https://img.shields.io/badge/naver-03C75A?style=flat-square&logo=blog&logoColor=white" />
+					<img alt="naver" src="https://img.shields.io/badge/blog-03C75A?style=flat-square&logo=naver&logoColor=white" />
 				</a>
 
-				<h2>💪 Skills</h2>
+				<h2><span  have role="img" aria-label="skill" >💪</span> Skills</h2>
 				<img alt="node" src="https://img.shields.io/badge/node.js-339933?style=flat-square&logo=node.js&logoColor=white" />
 				<img alt="java" src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white" />
 				<img alt="cpp" src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" />

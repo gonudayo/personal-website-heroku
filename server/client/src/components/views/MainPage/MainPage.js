@@ -52,16 +52,16 @@ function MainPage() {
 			<div className="app" style={{ fontSize: '2rem' }}><img style={{ width: '300px', height: 'auto' }} src='/gunwoo.JPG' alt='김건우 초상화' ></img></div>
 			<br />
 			<div className="app" style={{ fontSize: '2rem' }}><p>"반갑습니다. 만 {age}세 초신성 개발자 <b>김건우</b> 입니다."</p></div>
-			<br /><br />
+			<br />
 			<div className="app">
 			<AboutMe />
 			</div>
-			<br /><br />
+			<br /><br /><br /><br /><br />
 			<GrassChart data={Grass} commits={Commits} solves={Solves} />
+			<br /><br /><br /><br /><br />
 			<div className="app">
-			<br />
 			<StockChart data={Stock} asset={Asset} />
-			<br />
+			<br /><br /><br /><br /><br />
 			<div style={{ fontSize: '1.5rem' }}>루틴</div>
 			<br />
 			<UsefulSite />

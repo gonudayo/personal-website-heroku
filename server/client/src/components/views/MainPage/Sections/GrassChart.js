@@ -31,13 +31,13 @@ function GrassChart(props) {
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
 						<b>
-						<a href="https://github.com/gonudayo" target="_blank">
+						<a href="https://github.com/gonudayo" target="_blank" rel="noopener noreferrer">
 							깃허브
 						</a>
 						</b>
 						,{' '}
 						<b>
-						<a href="https://www.acmicpc.net/user/gonudayo" target="_blank">
+						<a href="https://www.acmicpc.net/user/gonudayo" target="_blank" rel="noopener noreferrer">
 							백준
 						</a>
 						</b>
