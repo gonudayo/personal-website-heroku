@@ -2,7 +2,6 @@ import React, {useEffect, useState } from 'react';
 import Axios from 'axios';
 import GrassChart from './Sections/GrassChart';
 import StockChart from './Sections/StockChart';
-import UsefulSite from './Sections/UsefulSite';
 import RoutineSite from './Sections/RoutineSite';
 import AboutMe from './Sections/AboutMe';
 
@@ -49,7 +48,7 @@ function MainPage() {
 	
 	return (
 		<div>
-			<div className="app" style={{ fontSize: '2rem' }}><img style={{ width: '300px', height: 'auto' }} src='/gunwoo.JPG' alt='김건우 초상화' ></img></div>
+			<div className="app" style={{ fontSize: '2rem' }}><img style={{ width: '300px', height: 'auto' }} src='/gunwoo.JPG' alt='2020김건우' ></img></div>
 			<br />
 			<div className="app" style={{ fontSize: '2rem' }}><p>"반갑습니다. 만 {age}세 초신성 개발자 <b>김건우</b> 입니다."</p></div>
 			<br />
@@ -63,8 +62,6 @@ function MainPage() {
 			<StockChart data={Stock} asset={Asset} />
 			<br /><br /><br /><br /><br />
 			<div style={{ fontSize: '1.5rem' }}>루틴</div>
-			<br />
-			<UsefulSite />
 			<br />
 			<RoutineSite />
 			</div>
