@@ -4,6 +4,7 @@ import GrassChart from './Sections/GrassChart';
 import StockChart from './Sections/StockChart';
 import UsefulSite from './Sections/UsefulSite';
 import RoutineSite from './Sections/RoutineSite';
+import AboutMe from './Sections/AboutMe';
 
 // 만 나이 계산
 function seoul() {
@@ -51,7 +52,11 @@ function MainPage() {
 			<div className="app" style={{ fontSize: '2rem' }}><img style={{ width: '300px', height: 'auto' }} src='/gunwoo.JPG' alt='김건우 초상화' ></img></div>
 			<br />
 			<div className="app" style={{ fontSize: '2rem' }}><p>"반갑습니다. 만 {age}세 초신성 개발자 <b>김건우</b> 입니다."</p></div>
-			<br /><br /><br /><br />
+			<br /><br />
+			<div className="app">
+			<AboutMe />
+			</div>
+			<br /><br />
 			<GrassChart data={Grass} commits={Commits} solves={Solves} />
 			<div className="app">
 			<br />

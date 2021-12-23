@@ -24,6 +24,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 input.error {
@@ -36,9 +37,6 @@ input.error {
 	margin-top: -12px;
 }
 
-a {
-	text-decoration-line: none;
-}
 a:link {
 	color: black;
 }
@@ -46,7 +44,7 @@ a:visited {
 	color: black;
 }
 a:hover {
-	color: black;
+	color: #1DB954;
 }
 a:active {
 	color: black;

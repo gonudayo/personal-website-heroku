@@ -29,8 +29,25 @@ function GrassChart(props) {
 		<div style={{ height: 500 }}>
 			{props.data && (
 				<span className="app">
-					<strong style={{ fontSize: '2rem' }}> 깃허브, 백준 활동 내역 차트 </strong>
-					<span> 1년간 총 활동 횟수 : {props.commits+props.solves} ( 깃허브 커밋 수 : {props.commits}, 백준 솔브 수 : {props.solves} )</span>
+					<span style={{ fontSize: '2rem' }}>
+						<b>
+						<a href="https://github.com/gonudayo" target="_blank">
+							깃허브
+						</a>
+						</b>
+						,{' '}
+						<b>
+						<a href="https://www.acmicpc.net/user/gonudayo" target="_blank">
+							백준
+						</a>
+						</b>
+						활동 내역 차트
+					</span>
+					<span>
+						{' '}
+						1년간 총 활동 지수 : {props.commits + props.solves} ( 깃허브 커밋 수 :{' '}
+						{props.commits}, 백준 솔브 수 : {props.solves} )
+					</span>
 				</span>
 			)}
 			{props.data && (
