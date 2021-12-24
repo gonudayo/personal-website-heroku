@@ -1,7 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
+import Axios from 'axios';
 import { ResponsiveCalendar } from '@nivo/calendar';
 
 function GrassChart(props) {
+	const [Grass, setGrass] = useState([]);
+	const [Commits, setCommits] = useState(0);
+	const [Solves, setSolves] = useState(0);
+	
+	useEffect(() => {
+		Axios.get('/api/charts/study').then((response) => {
+			if (response.data.success) {
+				setGrass(response.data.arr);
+				setCommits(response.data.commits);
+				setSolves(response.data.solves);
+			} else {
+				alert('Failed.');
+			}
+		});
+	}, []);
+	
 	const CalTooltip: React.FunctionComponent<CalendarDayData> = (props) => {
 		return (
 			<div
@@ -19,7 +36,7 @@ function GrassChart(props) {
 				</strong>
 				<br />
 				<strong>
-					깃허브 : {props.data.commit} 백준 : {props.data.solve}
+					깃허브 : {Grass.commit} 백준 : {Grass.solve}
 				</strong>
 			</div>
 		);
@@ -27,7 +44,7 @@ function GrassChart(props) {
 
 	return (
 		<div style={{ height: 500 }}>
-			{props.data && (
+			{Grass && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
 						<b>
@@ -45,14 +62,14 @@ function GrassChart(props) {
 					</span>
 					<span>
 						{' '}
-						1년간 총 활동 지수 : {props.commits + props.solves} ( 깃허브 커밋 수 :{' '}
-						{props.commits}, 백준 솔브 수 : {props.solves} )
+						1년간 총 활동 지수 : {Commits + Solves} ( 깃허브 커밋 수 :{' '}
+						{Commits}, 백준 솔브 수 : {Solves} )
 					</span>
 				</span>
 			)}
-			{props.data && (
+			{Grass && (
 				<ResponsiveCalendar
-					data={props.data}
+					data={Grass}
 					from="2021-01-01"
 					to="2021-12-31"
 					emptyColor="#eeeeee"

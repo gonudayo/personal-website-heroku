@@ -1,5 +1,4 @@
-import React, {useEffect, useState } from 'react';
-import Axios from 'axios';
+import React from 'react';
 import GrassChart from './Sections/GrassChart';
 import StockChart from './Sections/StockChart';
 import RoutineSite from './Sections/RoutineSite';
@@ -19,32 +18,6 @@ let age = year - 2001;
 if (month <= 1 && day <= 19) age -= 1;
 
 function MainPage() {
-	const [Grass, setGrass] = useState([]);
-	const [Commits, setCommits] = useState(0);
-	const [Solves, setSolves] = useState(0);
-	const [Stock, setStock] = useState([]);
-	const [Asset, setAsset] = useState(0);
-	
-	useEffect(() => {
-		Axios.get('/api/charts/study').then((response) => {
-			if (response.data.success) {
-				setGrass(response.data.arr);
-				setCommits(response.data.commits);
-				setSolves(response.data.solves);
-			} else {
-				alert('Failed.');
-			}
-		});
-		
-		Axios.get('/api/charts/stock').then((response) => {
-			if (response.data.success) {
-				setStock(response.data.arr);
-				setAsset(response.data.asset);
-			} else {
-				alert('Failed.');
-			}
-		});
-	}, []);
 	
 	return (
 		<div>
@@ -56,10 +29,10 @@ function MainPage() {
 			<AboutMe />
 			</div>
 			<br /><br /><br /><br /><br />
-			<GrassChart data={Grass} commits={Commits} solves={Solves} />
+			<GrassChart />
 			<br /><br /><br /><br /><br />
 			<div className="app">
-			<StockChart data={Stock} asset={Asset} />
+			<StockChart />
 			<br /><br /><br /><br /><br />
 			<div style={{ fontSize: '1.5rem' }}>루틴</div>
 			<br />

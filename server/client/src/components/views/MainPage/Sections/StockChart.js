@@ -1,25 +1,63 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import Axios from 'axios';
 
 function StockChart(props) {
+	function est() {
+		const temp = new Date();
+		temp.setHours(temp.getHours() - 5);
+		return temp;
+	}
+	const today = est();
+	const hour = today.getHours();
+	const minutes = today.getMinutes();
+
+	const [Stock, setStock] = useState([]);
+	const [Asset, setAsset] = useState(0);
+
+	useEffect(() => {
+		Axios.get('/api/charts/stock').then((response) => {
+			if (response.data.success) {
+				setStock(response.data.arr);
+				setAsset(response.data.asset);
+			} else {
+				alert('Failed.');
+			}
+		});
+		
+		Axios.get('https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/Crawling-Example').then((response) => {
+			if (response.status === 200) {
+				if(hour > 9 || (hour === 9 && minutes >= 30)) {
+					setStock(Stock => [...Stock, {day: 'now', value: response.data}]);
+				}
+			} else {
+				alert('Failed.');
+			}
+		})
+	}, []);
+
 	return (
 		<div style={{ height: 500 }}>
-			{props.data && (
+			{Stock && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
 						<b>
-							<a href="https://open.spotify.com/user/tid50r737huqem85120vai83d" target="_blank" rel="noopener noreferrer">
+							<a
+								href="https://open.spotify.com/user/tid50r737huqem85120vai83d"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								스포티파이
 							</a>
 						</b>
 					</span>
-					<span> 나의 시가총액 (전재산) : {props.asset.toFixed(0)} 원 </span>
+					<span> 나의 시가총액 (전재산) : {Asset.toFixed(0)} 원 </span>
 				</span>
 			)}
 			<LineChart
 				width={1000}
 				height={500}
-				data={props.data}
+				data={Stock}
 				margin={{
 					top: 40,
 					right: 40,
