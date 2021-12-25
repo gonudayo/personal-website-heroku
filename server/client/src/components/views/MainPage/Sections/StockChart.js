@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Axios from 'axios';
 
 function StockChart(props) {
@@ -37,7 +37,7 @@ function StockChart(props) {
 	}, []);
 
 	return (
-		<div style={{ height: 500 }}>
+		<div style={{ position: 'relative', width: '80%', paddingTop: '10%' }}>
 			{Stock && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
@@ -54,14 +54,13 @@ function StockChart(props) {
 					<span> 나의 시가총액 (전재산) : {Asset.toFixed(0)} 원 </span>
 				</span>
 			)}
-			<LineChart
-				width={1000}
-				height={500}
+			<ResponsiveContainer width="100%" height={400}>
+				<LineChart
 				data={Stock}
 				margin={{
 					top: 40,
-					right: 40,
-					left: 40,
+					right: 0,
+					left: 0,
 					bottom: 40,
 				}}
 			>
@@ -78,6 +77,8 @@ function StockChart(props) {
 					activeDot={{ r: 8 }}
 				/>
 			</LineChart>
+			</ResponsiveContainer>
+			
 		</div>
 	);
 }

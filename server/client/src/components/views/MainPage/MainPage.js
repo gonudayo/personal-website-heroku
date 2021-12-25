@@ -30,7 +30,6 @@ function MainPage() {
 			</div>
 			<br /><br /><br /><br /><br />
 			<GrassChart />
-			<br /><br /><br /><br /><br />
 			<div className="app">
 			<StockChart />
 			<br /><br /><br /><br /><br />

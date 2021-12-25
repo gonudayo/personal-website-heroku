@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import Axios from 'axios';
+import { ResponsiveContainer } from 'recharts';
 import { ResponsiveCalendar } from '@nivo/calendar';
 
 function GrassChart(props) {
@@ -43,7 +44,7 @@ function GrassChart(props) {
 	};
 
 	return (
-		<div style={{ height: 500 }}>
+		<div style={{ height: 250 }}>
 			{Grass && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
@@ -76,14 +77,16 @@ function GrassChart(props) {
 					colors={['#99FF99', '#32CD32', '#008000', '#006400']}
 					margin={{
 						top: 40,
-						right: 40,
-						bottom: 40,
+						right: 0,
+						bottom: 0,
 						left: 40,
 					}}
+					align="top"
 					yearSpacing={60}
+					monthBorderWidth={1}
 					monthBorderColor="#000000"
 					monthLegendOffset={10}
-					dayBorderWidth={2}
+					dayBorderWidth={1}
 					dayBorderColor="#ffffff"
 					tooltip={CalTooltip}
 					legends={[
