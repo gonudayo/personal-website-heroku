@@ -1,18 +1,17 @@
-import React, {useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import {
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	Legend,
+	ResponsiveContainer,
+} from 'recharts';
 import Axios from 'axios';
 
 function StockChart(props) {
-	function est() {
-		const temp = new Date();
-		temp.setHours(temp.getHours() - 5);
-		return temp;
-	}
-	const today = est();
-	const day = today.getDay();
-	const hour = today.getHours();
-	const minutes = today.getMinutes();
-
 	const [Stock, setStock] = useState([]);
 	const [Asset, setAsset] = useState(0);
 
@@ -25,16 +24,27 @@ function StockChart(props) {
 				alert('Failed.');
 			}
 		});
-		
-		Axios.get('https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/Crawling-Example').then((response) => {
+
+		Axios.get(
+			'https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/Crawling-Example'
+		).then((response) => {
+			function est() {
+				const temp = new Date();
+				temp.setHours(temp.getHours() - 5);
+				return temp;
+			}
+			const today = est();
+			const day = today.getDay();
+			const hour = today.getHours();
+			const minutes = today.getMinutes();
 			if (response.status === 200) {
-				if(day < 5 && (hour > 9 || (hour === 9 && minutes >= 30))) {
-					setStock(Stock => [...Stock, {day: 'now', value: response.data}]);
+				if (day < 5 && (hour > 9 || (hour === 9 && minutes >= 30))) {
+					setStock((Stock) => [...Stock, { day: 'now', value: response.data }]);
 				}
 			} else {
 				alert('Failed.');
 			}
-		})
+		});
 	}, []);
 
 	return (
@@ -57,29 +67,28 @@ function StockChart(props) {
 			)}
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart
-				data={Stock}
-				margin={{
-					top: 40,
-					right: 40,
-					left: 0,
-					bottom: 40,
-				}}
-			>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="day" />
-				<YAxis />
-				<Tooltip />
-				<Legend />
-				<Line
-					name="Spotify"
-					type="monotone"
-					dataKey="value"
-					stroke="#1DB954"
-					activeDot={{ r: 8 }}
-				/>
-			</LineChart>
+					data={Stock}
+					margin={{
+						top: 40,
+						right: 40,
+						left: 0,
+						bottom: 120,
+					}}
+				>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey="day" />
+					<YAxis />
+					<Tooltip />
+					<Legend />
+					<Line
+						name="Spotify"
+						type="monotone"
+						dataKey="value"
+						stroke="#1DB954"
+						activeDot={{ r: 8 }}
+					/>
+				</LineChart>
 			</ResponsiveContainer>
-			
 		</div>
 	);
 }

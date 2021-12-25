@@ -3,8 +3,8 @@ import React from 'react';
 function AboutMe(props) {
 	return (
 		<div>
+			<h2><span role="img" aria-label="call">🤙</span> Contact me</h2>
 			<p>
-				<h2><span  have role="img" aria-label="call">🤙</span> Contact me</h2>
 				<a href="mailto:kimgunwoo@yahoo.com" target="_blank" rel="noopener noreferrer">
 					<img alt="mail" src="https://img.shields.io/badge/kimgunwoo@yahoo.com-6001D2?style=flat-square&logo=yahoo&logoColor=white" />
 				</a>
@@ -20,8 +20,9 @@ function AboutMe(props) {
 				<a href="https://blog.naver.com/kgw553" target="_blank" rel="noopener noreferrer">
 					<img alt="naver" src="https://img.shields.io/badge/blog-03C75A?style=flat-square&logo=naver&logoColor=white" />
 				</a>
-
-				<h2><span  have role="img" aria-label="skill" >💪</span> Skills</h2>
+			</p>
+			<h2><span role="img" aria-label="skill" >💪</span> Skills</h2>
+			<p>
 				<img alt="node" src="https://img.shields.io/badge/node.js-339933?style=flat-square&logo=node.js&logoColor=white" />{' '}
 				<img alt="java" src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white" />{' '}
 				<img alt="cpp" src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" />{' '}

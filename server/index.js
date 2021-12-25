@@ -17,6 +17,11 @@ const connect = mongoose.connect(process.env.MONGODB_URI,
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+const http = require("http");
+setInterval(function () {
+  http.get("http://gunwoo.herokuapp.com");
+}, 600000);
+
 app.use(cors())
 
 //to not get any deprecation warning or error

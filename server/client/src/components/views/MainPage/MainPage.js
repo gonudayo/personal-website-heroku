@@ -28,11 +28,9 @@ function MainPage() {
 			<div className="app">
 			<AboutMe />
 			</div>
-			<br /><br /><br /><br /><br />
 			<GrassChart />
 			<div className="app">
 			<StockChart />
-			<br /><br /><br /><br /><br />
 			<div style={{ fontSize: '1.5rem' }}>루틴</div>
 			<br />
 			<RoutineSite />
