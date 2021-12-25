@@ -9,6 +9,7 @@ function StockChart(props) {
 		return temp;
 	}
 	const today = est();
+	const day = today.getDay();
 	const hour = today.getHours();
 	const minutes = today.getMinutes();
 
@@ -27,7 +28,7 @@ function StockChart(props) {
 		
 		Axios.get('https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/Crawling-Example').then((response) => {
 			if (response.status === 200) {
-				if(hour > 9 || (hour === 9 && minutes >= 30)) {
+				if(day < 5 && (hour > 9 || (hour === 9 && minutes >= 30))) {
 					setStock(Stock => [...Stock, {day: 'now', value: response.data}]);
 				}
 			} else {
@@ -59,7 +60,7 @@ function StockChart(props) {
 				data={Stock}
 				margin={{
 					top: 40,
-					right: 0,
+					right: 40,
 					left: 0,
 					bottom: 40,
 				}}

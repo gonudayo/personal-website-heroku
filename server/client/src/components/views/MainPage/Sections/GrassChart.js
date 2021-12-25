@@ -77,9 +77,9 @@ function GrassChart(props) {
 					colors={['#99FF99', '#32CD32', '#008000', '#006400']}
 					margin={{
 						top: 40,
-						right: 0,
+						right: 5,
 						bottom: 0,
-						left: 40,
+						left: 5,
 					}}
 					align="top"
 					yearSpacing={60}
