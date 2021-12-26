@@ -36,14 +36,14 @@ function GrassChart(props) {
 				</strong>
 				<br />
 				<strong>
-					깃허브 : {Grass.commit} 백준 : {Grass.solve}
+					깃허브 : {props.data.commit} 백준 : {props.data.solve}
 				</strong>
 			</div>
 		);
 	};
 
 	return (
-		<div style={{ height: 250, marginTop: 100 }}>
+		<div style={{ height: 250, marginBottom: 70 }}>
 			{Grass && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>

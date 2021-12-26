@@ -48,7 +48,7 @@ function StockChart(props) {
 	}, []);
 
 	return (
-		<div style={{ position: 'relative', width: '80%', paddingTop: '10%' }}>
+		<div style={{ position: 'relative', width: '80%', paddingTop: '4%' }}>
 			{Stock && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
@@ -65,14 +65,14 @@ function StockChart(props) {
 					<span> 나의 시가총액 (전재산) : {Asset.toFixed(0)} 원 </span>
 				</span>
 			)}
-			<ResponsiveContainer width="100%" height={400}>
+			<ResponsiveContainer width="100%" height={350}>
 				<LineChart
 					data={Stock}
 					margin={{
 						top: 40,
 						right: 40,
 						left: 0,
-						bottom: 120,
+						bottom: 0,
 					}}
 				>
 					<CartesianGrid strokeDasharray="3 3" />
