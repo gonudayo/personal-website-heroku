@@ -16,7 +16,7 @@ if (month <= 1 && day <= 19) age -= 1;
 function AboutMe(props) {
 	return (
 		<div>
-			<div style={{ fontSize: '2rem' }}>
+			<div>
 				<img
 					style={{ width: '300px', height: 'auto' }}
 					src="/gunwoo.JPG"
@@ -48,6 +48,7 @@ function AboutMe(props) {
 					<img alt="naver" src="https://img.shields.io/badge/blog-03C75A?style=flat-square&logo=naver&logoColor=white" />
 				</a>
 			</p>
+			<br />
 			<h2><span role="img" aria-label="skill" >💪</span> Skills</h2>
 			<p>
 				<img alt="node" src="https://img.shields.io/badge/node.js-339933?style=flat-square&logo=node.js&logoColor=white" />{' '}
@@ -58,6 +59,7 @@ function AboutMe(props) {
 				<img alt="amazonaws" src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white" />{' '}
 				<img alt="mongodb" src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />{' '}
 				<img alt="postman" src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white" />
+				<br />
 			</p>
 		</div>
 	);

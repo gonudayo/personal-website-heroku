@@ -5,7 +5,6 @@ import GrassChart from './Sections/GrassChart';
 import StockChart from './Sections/StockChart';
 import AboutMe from './Sections/AboutMe';
 import Project from './Sections/Project';
-import 'fullpage.js/vendors/scrolloverflow';
 
 function MainPage() {
 	if (isMobile) {

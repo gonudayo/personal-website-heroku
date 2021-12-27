@@ -38,7 +38,7 @@ function StockChart(props) {
 			const hour = today.getHours();
 			const minutes = today.getMinutes();
 			if (response.status === 200) {
-				if (day < 5 && (hour > 9 || (hour === 9 && minutes >= 30))) {
+				if ((day > 0 && day < 6) && (hour > 9 || (hour === 9 && minutes >= 30))) {
 					setStock((Stock) => [...Stock, { day: 'now', value: response.data }]);
 				}
 			} else {
