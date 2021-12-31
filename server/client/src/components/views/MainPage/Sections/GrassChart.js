@@ -1,12 +1,24 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { ResponsiveCalendar } from '@nivo/calendar';
 
 function GrassChart(props) {
-	const [Grass, setGrass] = useState([]);
-	const [Commits, setCommits] = useState(0);
-	const [Solves, setSolves] = useState(0);
+	function seoul() {
+		const t = new Date();
+		t.setHours(t.getHours() + 9);
+		return t;
+	}
+	const today = seoul();
+	const year = today.getFullYear();
 	
+	const [Grass, setGrass] = useState([]);
+	const [Commits, setCommits] = useState([]);
+	const [Solves, setSolves] = useState([]);
+	const [Year, setYear] = useState(year);
+	
+	const srtYear = `${Year}-01-01`;
+	const endYear = `${Year}-12-31`;
+
 	useEffect(() => {
 		Axios.get('/api/charts/study').then((response) => {
 			if (response.data.success) {
@@ -18,7 +30,14 @@ function GrassChart(props) {
 			}
 		});
 	}, []);
-	
+
+	const handleChange = (event) => {
+		const {
+			target: { value },
+		} = event;
+		setYear(value * 1);
+	};
+
 	const CalTooltip: React.FunctionComponent<CalendarDayData> = (props) => {
 		return (
 			<div
@@ -48,30 +67,60 @@ function GrassChart(props) {
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
 						<b>
-						<a href="https://github.com/gonudayo" target="_blank" rel="noopener noreferrer">
-							깃허브
-						</a>
+							<a
+								href="https://github.com/gonudayo"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								깃허브
+							</a>
 						</b>
 						,{' '}
 						<b>
-						<a href="https://www.acmicpc.net/user/gonudayo" target="_blank" rel="noopener noreferrer">
-							백준
-						</a>
+							<a
+								href="https://www.acmicpc.net/user/gonudayo"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								백준
+							</a>
 						</b>
 						활동 내역 차트
 					</span>
+					<br />
 					<span>
-						{' '}
-						1년간 총 활동 지수 : {Commits + Solves} ( 깃허브 커밋 수 :{' '}
-						{Commits}, 백준 솔브 수 : {Solves} )
+						<b>{Year}년</b> 총 활동 지수 : {Commits[Year-2021] + Solves[Year-2021]} ( 깃허브 커밋 수 : {Commits[Year-2021]}, 백준
+						솔브 수 : {Solves[Year-2021]} )
 					</span>
+					<div>
+						<label>
+							<input
+								type="radio"
+								name="letter"
+								value={2021}
+								checked={Year === 2021}
+								onChange={handleChange}
+							/>
+							2021
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="letter"
+								value={2022}
+								checked={Year === 2022}
+								onChange={handleChange}
+							/>
+							2022
+						</label>
+					</div>
 				</span>
 			)}
 			{Grass && (
 				<ResponsiveCalendar
 					data={Grass}
-					from="2021-01-01"
-					to="2021-12-31"
+					from={srtYear}
+					to={endYear}
 					emptyColor="#eeeeee"
 					colors={['#99FF99', '#32CD32', '#008000', '#006400']}
 					margin={{

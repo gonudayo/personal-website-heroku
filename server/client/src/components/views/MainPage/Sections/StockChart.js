@@ -62,6 +62,7 @@ function StockChart(props) {
 							</a>
 						</b>
 					</span>
+					<br />
 					<span> 나의 시가총액 (전재산) : {Asset.toFixed(0)} 원 </span>
 				</span>
 			)}

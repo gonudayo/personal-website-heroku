@@ -7,16 +7,22 @@ const { Record } = require('../models/Record');
 router.get('/study', async (req, res) => {
 	let map1 = new Map();
 	let arr = [];
-	let totalCommit = 0;
-	let totalSolve = 0;
+	let totalCommit = [0, 0];
+	let totalSolve = [0, 0];
 
-	const getCommit = async () => {
+	const getCommitA = async () => {
 		try {
-			return await axios.get('https://github.com/gonudayo');
+			return await axios.get('https://github.com/gonudayo?tab=overview&from=2021-01-01');
 		} catch (error) {}
 	};
-
-	await getCommit().then(async (html) => {
+	
+	const getCommitB = async () => {
+		try {
+			return await axios.get('https://github.com/gonudayo?tab=overview&from=2022-01-01');
+		} catch (error) {}
+	};
+	
+	await getCommitB().then(async (html) => {
 		const $ = cheerio.load(html.data);
 		let parentTag = $('rect');
 
@@ -25,7 +31,21 @@ router.get('/study', async (req, res) => {
 			let count = $(this).attr('data-count') * 1;
 			if (!isNaN(count) && count != 0) {
 				map1.set(day, { value: count, commit: count, solve: 0 });
-				totalCommit += count;
+				totalCommit[1] += count;
+			}
+		});
+	});
+
+	await getCommitA().then(async (html) => {
+		const $ = cheerio.load(html.data);
+		let parentTag = $('rect');
+
+		await parentTag.each(function (i, elem) {
+			let day = $(this).attr('data-date');
+			let count = $(this).attr('data-count') * 1;
+			if (!isNaN(count) && count != 0) {
+				map1.set(day, { value: count, commit: count, solve: 0 });
+				totalCommit[0] += count;
 			}
 		});
 
@@ -55,7 +75,7 @@ router.get('/study', async (req, res) => {
 							solve: count,
 						});
 					} else map1.set(day, { value: count, commit: 0, solve: count });
-					totalSolve += count;
+					totalSolve[(day.substr(0, 4) * 1) - 2021] += count;
 					t = '';
 				} else if (str[i] != ',') t += str[i];
 			}
@@ -70,7 +90,6 @@ router.get('/study', async (req, res) => {
 			// for (var i in array) {
 			// 	console.log(array[i]);
 			// }
-			// console.log(totalCommit, totalSolve)
 
 			return res
 				.status(200)
@@ -84,12 +103,11 @@ router.get('/stock', (req, res) => {
 		if (err) res.status(400).json({ success: false, arr: err });
 		let arr = data;
 		await arr.sort(function (a, b) {
-			
 			return parseInt(a.day.replace(/-/gi, '')) - parseInt(b.day.replace(/-/gi, ''));
 		});
 		let asset = arr[arr.length - 1].value;
 		let krw = 0;
-		
+
 		const getKRW = async () => {
 			try {
 				return await axios.get(
@@ -100,7 +118,7 @@ router.get('/stock', (req, res) => {
 		await getKRW().then((html) => {
 			asset *= html.data[0].cashSellingPrice * process.env.StockQty;
 		});
-		
+
 		return res.status(200).json({ success: true, arr: arr, asset: asset });
 	});
 });

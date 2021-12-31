@@ -51,7 +51,7 @@ function Project(props) {
 						크롬 확장프로그램 : 유튜브 그만 봐
 					</div>
 					<br />
-					<RepoCard username="osamhack2021" repository="Stop-watching-YouTube" />
+					<RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
 				</div>
 				
 				<div style={{ paddingBottom: 50}}>
@@ -107,7 +107,7 @@ function Project(props) {
 						크롬 확장프로그램 :<br />유튜브 그만 봐
 					</div>
 					<br />
-					<RepoCard username="osamhack2021" repository="Stop-watching-YouTube" />
+					<RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
 				</div>
 			</div>
 		);
