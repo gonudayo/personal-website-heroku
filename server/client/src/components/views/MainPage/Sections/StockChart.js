@@ -8,6 +8,7 @@ import {
 	Tooltip,
 	Legend,
 	ResponsiveContainer,
+	Brush,
 } from 'recharts';
 import Axios from 'axios';
 
@@ -88,6 +89,7 @@ function StockChart(props) {
 						stroke="#1DB954"
 						activeDot={{ r: 8 }}
 					/>
+					<Brush />
 				</LineChart>
 			</ResponsiveContainer>
 		</div>
