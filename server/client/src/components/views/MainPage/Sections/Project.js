@@ -6,8 +6,9 @@ function Project(props) {
 	if (isMobile) {
 		return (
 			<div>
-				<div style={{ width: '350px', marginBottom: 100, marginTop: 200}}>
-					<div style={{ fontSize: '1.8rem' }}> 2021 개인 웹사이트 </div>
+				<div style={{ fontSize: '2rem', paddingTop: 150, paddingBottom: 10 }}><b>Projects</b></div>
+				<div style={{ width: '350px', marginBottom: 100, marginTop: 50}}>
+					<div style={{ fontSize: '1.5rem' }}> 2021 개인 웹사이트 </div>
 					<br />
 					<div style={{ fontSize: '1rem' }}>
 						Heroku 배포{' '}
@@ -39,7 +40,7 @@ function Project(props) {
 				</div>
 
 				<div style={{ width: '350px', paddingBottom: 100 }}>
-					<div style={{ fontSize: '1.8rem' }}>
+					<div style={{ fontSize: '1.5rem' }}>
 						2021 군장병 공개SW 온라인 해커톤 : 위드 밀리터리
 					</div>
 					<br />
@@ -47,7 +48,7 @@ function Project(props) {
 				</div>
 				
 				<div style={{ width: '350px', paddingBottom: 150 }}>
-					<div style={{ fontSize: '1.8rem' }}>
+					<div style={{ fontSize: '1.5rem' }}>
 						크롬 확장프로그램 : 유튜브 그만 봐
 					</div>
 					<br />
@@ -62,8 +63,9 @@ function Project(props) {
 	} else {
 		return (
 			<div>
+				<div style={{ fontSize: '2rem', paddingBottom: 100 }}><b>Projects</b></div>
 				<div style={{ width: '405px', marginLeft: 50, marginRight: 50, float: 'left', mariginBottom: 100 }}>
-					<div style={{ fontSize: '1.8rem' }}> 개인 웹사이트 프로젝트 </div>
+					<div style={{ fontSize: '1.5rem' }}> 개인 웹사이트 프로젝트 </div>
 					<br />
 					<div style={{ fontSize: '1rem' }}>
 						Heroku 배포{' '}
@@ -95,7 +97,7 @@ function Project(props) {
 				</div>
 
 				<div style={{ width: '405px', marginRight: 50, float: 'left', marginBottom: 100 }}>
-					<div style={{ fontSize: '1.8rem' }}>
+					<div style={{ fontSize: '1.5rem' }}>
 						군장병 공개SW 온라인 해커톤 :<br />위드 밀리터리
 					</div>
 					<br />
@@ -103,7 +105,7 @@ function Project(props) {
 				</div>
 				
 				<div style={{ width: '405px', marginRight: 50, float: 'left' }}>
-					<div style={{ fontSize: '1.8rem' }}>
+					<div style={{ fontSize: '1.5rem' }}>
 						크롬 확장프로그램 :<br />유튜브 그만 봐
 					</div>
 					<br />

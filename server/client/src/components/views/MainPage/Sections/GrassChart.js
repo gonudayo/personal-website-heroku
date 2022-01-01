@@ -46,7 +46,7 @@ function GrassChart(props) {
 					color: 'white',
 					background: '#222222',
 					borderRadius: '5px 5px 5px 5px',
-					boxShadow: '3px 3px 3px gray',
+					boxShadow: '3px 3px 3px gray'
 				}}
 			>
 				<strong>
@@ -62,7 +62,7 @@ function GrassChart(props) {
 	};
 
 	return (
-		<div style={{ height: 250, marginBottom: 70 }}>
+		<div style={{ height: 250, paddingBottom: 150 }}>
 			{Grass && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>

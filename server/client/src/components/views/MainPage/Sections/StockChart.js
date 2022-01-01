@@ -49,7 +49,7 @@ function StockChart(props) {
 	}, []);
 
 	return (
-		<div style={{ position: 'relative', width: '80%', paddingTop: '4%' }}>
+		<div style={{ position: 'relative', width: '80%' }}>
 			{Stock && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>
