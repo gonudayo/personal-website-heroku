@@ -26,7 +26,7 @@ function AboutMe(props) {
 			<br />
 			<div style={{ fontSize: '2rem' }}>
 				<p>
-					"반갑습니다. 만 {age}세 초신성 개발자 <b>김건우</b> 입니다."
+					"반갑습니다. 초신성 백엔드 개발자 <b>김건우</b> 입니다."
 				</p>
 			</div>
 			<br />
