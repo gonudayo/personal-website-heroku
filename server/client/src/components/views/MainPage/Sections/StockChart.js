@@ -27,7 +27,7 @@ function StockChart(props) {
 		});
 
 		Axios.get(
-			'https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/Crawling-Example'
+			'https://9wl9vr5c1l.execute-api.ap-northeast-2.amazonaws.com/default/get-spot'
 		).then((response) => {
 			function est() {
 				const temp = new Date();
@@ -89,7 +89,7 @@ function StockChart(props) {
 						stroke="#1DB954"
 						activeDot={{ r: 8 }}
 					/>
-					<Brush />
+					<Brush startIndex={Stock.length-8} endIndex={Stock.length-1} />
 				</LineChart>
 			</ResponsiveContainer>
 		</div>
