@@ -85,7 +85,7 @@ function GrassChart(props) {
 								백준
 							</a>
 						</b>
-						활동 내역 차트
+						<b>활동 내역 차트</b>
 					</span>
 					<br />
 					<span>

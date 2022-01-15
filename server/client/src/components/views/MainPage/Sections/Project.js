@@ -78,7 +78,7 @@ function Project(props) {
     );
   } else {
     return (
-      <div style={{ fontSize: "2rem", paddingTop: 150, paddingBottom: 100 }}>
+      <div style={{ fontSize: "2rem", paddingTop: 200, paddingBottom: 100 }}>
         <div style={{ fontSize: "2rem", paddingBottom: 100 }}>
           <b>Projects</b>
         </div>

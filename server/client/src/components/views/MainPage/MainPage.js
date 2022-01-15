@@ -3,6 +3,7 @@ import GrassChart from "./Sections/GrassChart";
 import StockChart from "./Sections/StockChart";
 import AboutMe from "./Sections/AboutMe";
 import Project from "./Sections/Project";
+import TodaysMood from "./Sections/TodaysMood";
 
 function MainPage() {
   return (
@@ -15,7 +16,7 @@ function MainPage() {
       <div className="section">
         <GrassChart />
         <div className="app">
-          <StockChart />
+          <TodaysMood/>
         </div>
       </div>
       <div className="section">
