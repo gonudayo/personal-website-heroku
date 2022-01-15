@@ -35,6 +35,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static('uploads'));
 
 app.use('/api/charts', require('./routes/charts'));
+app.use('/api/arsenal', require('./routes/arsenal'));
 
 // 리액트 정적 파일 제공
 app.use(express.static(path.join(__dirname, "/client/build")));
