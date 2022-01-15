@@ -1,6 +1,5 @@
 import React from "react";
 import GrassChart from "./Sections/GrassChart";
-import StockChart from "./Sections/StockChart";
 import AboutMe from "./Sections/AboutMe";
 import Project from "./Sections/Project";
 import TodaysMood from "./Sections/TodaysMood";
