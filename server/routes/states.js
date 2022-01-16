@@ -19,14 +19,14 @@ const Month = {
 };
 
 // 최근 아스날 경기 정보를 스크래핑하는 API
-router.get("/result", (req, res) => {
-  const getKRW = async () => {
+router.get("/arsenal", (req, res) => {
+  const getHtml = async () => {
     try {
       return await axios.get("https://www.skysports.com/arsenal-results");
     } catch (error) {}
   };
 
-  getKRW().then((html) => {
+  getHtml().then((html) => {
     const $ = cheerio.load(html.data);
     let parentTagMatch = $("div.fixres__body div.fixres__item ");
     let parentTagDate = $("div.fixres__body h4.fixres__header2");
@@ -111,6 +111,35 @@ router.get("/result", (req, res) => {
     return res
       .status(200)
       .json({ success: true, result: result, point: score / btDay });
+  });
+});
+
+router.get("/weather", (req, res) => {
+  const getHtml = async () => {
+    try {
+      return await axios.get(
+        "https://weather.com/ko-KR/weather/today/l/0502159daced4ff2e442dd568ab543dbabd92b658de0109b748fea7b19a0c0cb"
+      );
+    } catch (error) {}
+  };
+
+  getHtml().then((html) => {
+    const $ = cheerio.load(html.data);
+    let parseTemp = $(
+      "div.TodayDetailsCard--hero--2atuJ div.TodayDetailsCard--feelsLikeTemp--3fwAJ span.TodayDetailsCard--feelsLikeTempValue--Cf9Sl"
+    )
+      .text()
+      .trim();
+    let temperature = parseTemp.replace(/[^0-9]/g, "");
+    let parseHum = $(
+      "div.TodayDetailsCard--detailsContainer--16Hg0 div:nth-child(3) div.WeatherDetailsListItem--wxData--2s6HT span"
+    )
+      .text()
+      .trim();
+    let humidity = parseHum.replace(/[^0-9]/g, "");
+    return res
+      .status(200)
+      .json({ success: true, temperature: temperature, humidity: humidity });
   });
 });
 
