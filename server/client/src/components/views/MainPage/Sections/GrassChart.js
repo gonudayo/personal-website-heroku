@@ -62,7 +62,7 @@ function GrassChart(props) {
 	};
 
 	return (
-		<div style={{ height: 250, paddingBottom: 150 }}>
+		<div style={{ height: 250, marginBottom: 150 }}>
 			{Grass && (
 				<span className="app">
 					<span style={{ fontSize: '2rem' }}>

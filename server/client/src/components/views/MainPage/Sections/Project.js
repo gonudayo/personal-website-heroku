@@ -6,7 +6,7 @@ function Project(props) {
   if (isMobile) {
     return (
       <div>
-        <div style={{ fontSize: "2rem", paddingTop: 150, paddingBottom: 10 }}>
+        <div style={{ fontSize: "2rem", paddingBottom: 10 }}>
           <b>Projects</b>
         </div>
         <div style={{ width: "350px", marginBottom: 100, marginTop: 50 }}>
@@ -23,9 +23,15 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-Heroku" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="PersonalWebsite-Heroku" />
+          </div>
+
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-AWS" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="PersonalWebsite-AWS" />
+          </div>
+
           <br />
           <div style={{ fontSize: "1rem" }}>
             Netlify 배포{" "}
@@ -38,7 +44,12 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-Netlify" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard
+              username="gonudayo"
+              repository="PersonalWebsite-Netlify"
+            />
+          </div>
         </div>
 
         <div style={{ width: "350px", paddingBottom: 100 }}>
@@ -46,10 +57,12 @@ function Project(props) {
             2021 군장병 공개SW 온라인 해커톤 : 위드 밀리터리
           </div>
           <br />
-          <RepoCard
-            username="osamhack2021"
-            repository="Web_With_Military_temp"
-          />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard
+              username="osamhack2021"
+              repository="Web_With_Military_temp"
+            />
+          </div>
         </div>
 
         <div style={{ width: "350px", paddingBottom: 150 }}>
@@ -67,7 +80,9 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
+          </div>
         </div>
         <div style={{ paddingBottom: 50 }}>
           <a href="/#" title="맨 위로">
@@ -104,9 +119,15 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-Heroku" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="PersonalWebsite-Heroku" />
+          </div>
+
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-AWS" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="PersonalWebsite-AWS" />
+          </div>
+
           <br />
           <div style={{ fontSize: "1rem" }}>
             Netlify 배포{" "}
@@ -119,7 +140,12 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="PersonalWebsite-Netlify" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard
+              username="gonudayo"
+              repository="PersonalWebsite-Netlify"
+            />
+          </div>
         </div>
 
         <div
@@ -135,10 +161,12 @@ function Project(props) {
             위드 밀리터리
           </div>
           <br />
-          <RepoCard
-            username="osamhack2021"
-            repository="Web_With_Military_temp"
-          />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard
+              username="osamhack2021"
+              repository="Web_With_Military_temp"
+            />
+          </div>
         </div>
 
         <div style={{ width: "405px", marginRight: 50, float: "left" }}>
@@ -157,7 +185,9 @@ function Project(props) {
             </a>
           </div>
           <br />
-          <RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
+          <div style={{ textAlign: "left" }}>
+            <RepoCard username="gonudayo" repository="Stop-watching-YouTube" />
+          </div>
         </div>
       </div>
     );

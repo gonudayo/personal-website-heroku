@@ -13,10 +13,10 @@ function MainPage() {
         </div>
       </div>
       <div className="section">
-        <GrassChart />
-        <div className="app">
-          <TodaysMood/>
+        <div className="app" style={{ marginBottom: 125 }}>
+          <TodaysMood />
         </div>
+        <GrassChart />
       </div>
       <div className="section">
         <div className="app">

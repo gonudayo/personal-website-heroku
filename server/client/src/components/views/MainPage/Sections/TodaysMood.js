@@ -75,7 +75,7 @@ function TodaysMood(props) {
 
   return (
     <div>
-      <div style={{ fontSize: "2rem", paddingTop: 100 }}>
+      <div style={{ fontSize: "2rem" }}>
         <b>오늘의 기분 지수</b>
         <br />
       </div>
