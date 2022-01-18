@@ -3,13 +3,21 @@ import Axios from "axios";
 
 function TodaysMood(props) {
   const [Stock, setStock] = useState(0);
-  const [Result, setResult] = useState({ point: 0 });
+  const [Result, setResult] = useState({
+    point: 0,
+    home: {
+      score: 0,
+    },
+    away: {
+      score: 0,
+    },
+  });
   const [Weather, setWeather] = useState({ temperature: 0, humidity: 0 });
 
   useEffect(() => {
     Axios.get("/api/states/arsenal").then((response) => {
       if (response.data.success) {
-        setResult(response.data);
+        setResult(response.data.results);
       } else {
         alert("Failed.");
       }
@@ -87,9 +95,15 @@ function TodaysMood(props) {
   }
 
   let TMP = Math.floor(
-    Math.floor(((Stock + Result.point) / 350) * 100) -
-      (Math.abs(Weather.temperature - 17) + Math.abs(Weather.humidity - 50)) *
-        0.3
+    Math.floor(
+      ((Stock +
+        Result.point +
+        Math.abs(Result.home.score - Result.away.score) -
+        (Math.abs(Weather.temperature - 17) + Math.abs(Weather.humidity - 50)) *
+          0.3) /
+        350) *
+        100
+    ) 
   );
 
   return (
@@ -106,50 +120,42 @@ function TodaysMood(props) {
           value={TMP}
           max="100"
         ></progress>{" "}
-        {TMP}%
+        {TMP}
       </div>
-      
-      <div>
-        
-      </div>
-      <details style={{ textAlign: "left" }}>
+      <details style={{ width: "360px", textAlign: "left" }}>
+        <summary>산정 방식</summary>
         <br />
         <div>
-          <b>오늘의 기분 지수</b> 산정 방식은 다음과 같습니다.
+          <b>오늘의 기분 지수</b> = ((a + b / c - d) / 350 ) * 100
           <br />
           a. 보유하고 있는 주식의 현재 주가 <b>${Stock}</b>
           <br />
           b. 가장 최근의 아스날 경기 결과
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;승 = 100, 무 = -50, 패 = -200
+          &nbsp;&nbsp;&nbsp;&nbsp;(승 = 100, 무 = -50, 패 = -200) + (점수 차*2)
+          {Result.day && (
+            <span>
+              <br />
+              &nbsp;&nbsp;&nbsp; {Result.day}{" "}
+              <b>
+                {Result.home.name} VS {Result.away.name}
+              </b>{" "}
+              의 결과 :{" "}
+              <b>
+                {Result.home.score} : {Result.away.score}
+              </b>
+            </span>
+          )}
           <br />
           c. 가장 최근의 아스날 경기일로부터 경과일
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;1일 부터 시작한다
+          &nbsp;&nbsp;&nbsp;&nbsp;{" "}
+          {Result.elapsed && <span>{Result.elapsed} 일</span>}
           <br />
           d. 현재 날씨 지수
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;(|<b>{Weather.temperature}°</b>(체감 온도) -
           17| + |<b>{Weather.humidity}%</b>(습도) - 50|) * 0.3
-          <br />
-          <b>오늘의 기분 지수</b> = ((a + b / c) / 350 ) * 100 - d
-          <br />
-          {Result.result && (
-            <div>
-              <br />
-              Tip : 가장 최근의 경기{" "}
-              <b>
-                {Result.result.home.name} VS {Result.result.away.name}
-              </b>{" "}
-              의
-              <br />
-              결과는{" "}
-              <b>
-                {Result.result.home.score} : {Result.result.away.score}
-              </b>{" "}
-              입니다.
-            </div>
-          )}
         </div>
       </details>
     </div>

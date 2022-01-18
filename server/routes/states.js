@@ -87,17 +87,36 @@ router.get("/arsenal", (req, res) => {
     var btMs = new Date().getTime() - new Date(matchDay).getTime();
     var btDay = btMs / (1000 * 60 * 60 * 24);
 
-    let score = "";
+    let score = 0;
+    let result = "";
     if (homeTeam[0] === "Arsenal") {
-      if (homeScore[0] > awayScore[0]) score = 100;
-      else if (homeScore[0] === awayScore[0]) score = -50;
-      else score = -200;
+      if (homeScore[0] > awayScore[0]) {
+        score = 100;
+        result = "win";
+      }
+      else if (homeScore[0] === awayScore[0]) {
+        score = -50;
+        result = "draw";
+      }
+      else {
+        score = -200;
+        result = "lose";
+      }
     } else {
-      if (homeScore[0] > awayScore[0]) score = -200;
-      else if (homeScore[0] === awayScore[0]) score = -50;
-      else score = 100;
+      if (homeScore[0] > awayScore[0]) {
+        score = -200;
+        result = "lose";
+      }
+      else if (homeScore[0] === awayScore[0]) {
+        score = -50;
+        result = "draw";
+      }
+      else {
+        score = 100;
+        result = "win";
+      }
     }
-    const result = {
+    const results = {
       day: matchDay,
       home: {
         name: homeTeam[0],
@@ -107,10 +126,12 @@ router.get("/arsenal", (req, res) => {
         name: awayTeam[0],
         score: awayScore[0],
       },
+      point: score / btDay,
+      elapsed: btDay.toFixed(4)
     };
     return res
       .status(200)
-      .json({ success: true, result: result, point: score / btDay });
+      .json({ success: true, results: results });
   });
 });
 
@@ -130,7 +151,7 @@ router.get("/weather", (req, res) => {
     )
       .text()
       .trim();
-    let temperature = parseTemp.replace(/[^0-9]/g, "");
+    let temperature = parseTemp.replace(/[^0-9 | -]/g, "");
     let parseHum = $(
       "div.TodayDetailsCard--detailsContainer--16Hg0 div:nth-child(3) div.WeatherDetailsListItem--wxData--2s6HT span"
     )
