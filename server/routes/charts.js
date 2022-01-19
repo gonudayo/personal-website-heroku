@@ -6,7 +6,8 @@ const { Record } = require('../models/Record');
 
 router.get('/study', async (req, res) => {
 	let map1 = new Map();
-	let arr = [];
+	let maxStreak = 0;
+	let nowStreak = 0;
 	let totalCommit = [0, 0];
 	let totalSolve = [0, 0];
 
@@ -32,7 +33,11 @@ router.get('/study', async (req, res) => {
 			if (!isNaN(count) && count != 0) {
 				map1.set(day, { value: count, commit: count, solve: 0 });
 				totalCommit[1] += count;
+				nowStreak += 1;
+			} else {
+				nowStreak = 0;
 			}
+			maxStreak = Math.max(nowStreak, maxStreak);
 		});
 	});
 
@@ -46,7 +51,11 @@ router.get('/study', async (req, res) => {
 			if (!isNaN(count) && count != 0) {
 				map1.set(day, { value: count, commit: count, solve: 0 });
 				totalCommit[0] += count;
+				nowStreak += 1;
+			} else {
+				nowStreak = 0;
 			}
+			maxStreak = Math.max(nowStreak, maxStreak);
 		});
 
 		const getSolved = async () => {
@@ -93,7 +102,7 @@ router.get('/study', async (req, res) => {
 
 			return res
 				.status(200)
-				.json({ success: true, arr: array, commits: totalCommit, solves: totalSolve });
+				.json({ success: true, arr: array, commits: totalCommit, solves: totalSolve, maxStreak: maxStreak });
 		});
 	});
 });
