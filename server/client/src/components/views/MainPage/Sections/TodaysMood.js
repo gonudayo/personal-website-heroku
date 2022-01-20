@@ -45,7 +45,7 @@ function TodaysMood(props) {
   function emoji(point) {
     if (point >= 200) {
       return (
-        <span role="img" aria-label="100" title="TO THE MOON">
+        <span role="img" aria-label="200" title="TO THE MOON">
           🤑
         </span>
       );
@@ -63,31 +63,31 @@ function TodaysMood(props) {
       );
     } else if (point >= 80) {
       return (
-        <span role="img" aria-label="90" title="HAPPY">
+        <span role="img" aria-label="80" title="HAPPY">
           😁
         </span>
       );
     } else if (point >= 70) {
       return (
-        <span role="img" aria-label="90" title="GOOD">
+        <span role="img" aria-label="70" title="GOOD">
           🙂
         </span>
       );
     } else if (point >= 60) {
       return (
-        <span role="img" aria-label="90" title="NO COMMENT">
+        <span role="img" aria-label="60" title="NO COMMENT">
           😐
         </span>
       );
     } else if (point >= 50) {
       return (
-        <span role="img" aria-label="90" title="NOT GOOD">
+        <span role="img" aria-label="50" title="NOT GOOD">
           😬
         </span>
       );
     } else {
       return (
-        <span role="img" aria-label="90" title="F#@!">
+        <span role="img" aria-label="0" title="F#@!">
           🤬
         </span>
       );

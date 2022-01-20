@@ -4,11 +4,32 @@
     <meta charset="utf-8" />
     <link
       rel="preload"
-      href="../src/SUIT-Medium.woff2"
+      href="./SUIT-Medium.woff2"
       as="font"
       type="font/woff2"
+      data-family="SUIT"
+      data-weight="500"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        margin: 0;
+        font-family: "SUIT", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 14px;
+        color: black;
+      }
+    </style>
+    <style>
+      @font-face {
+        font-family: "SUIT";
+        font-weight: 500;
+        src: url(SUIT-Medium.woff2) format("woff2");
+      }
+    </style>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />

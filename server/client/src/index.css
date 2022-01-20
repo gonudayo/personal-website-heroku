@@ -1,25 +1,3 @@
-@font-face {
-  font-family: "SUIT";
-  font-weight: 500;
-  src: url("./fonts/SUIT-Medium.woff2") format("woff2");
-}
-
-body {
-  margin: 0;
-  font-family: "SUIT", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
-  color: black;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .app {
   flex-direction: column;
   display: flex;

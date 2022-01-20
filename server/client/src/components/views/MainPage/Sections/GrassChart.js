@@ -27,7 +27,7 @@ function GrassChart(props) {
         setGrass(response.data.arr);
         setCommits(response.data.commits);
         setSolves(response.data.solves);
-        setCommitStreak(response.data.maxStreak)
+        setCommitStreak(response.data.maxStreak);
       } else {
         alert("Failed.");
       }
@@ -163,8 +163,11 @@ function GrassChart(props) {
           ]}
         />
       )}
-      <div className="app">
-        <span>🔥 현재 백준 솔브 <b>{SolveStreak}</b>일 연속 🏃 깃허브 커밋 <b>{CommitStreak}</b>일 연속 🚨🔥</span>
+      <div style={{textAlign: "center"}}>
+        <span role="img" aria-label="text" title="">
+          🔥 현재 백준 솔브 <b>{SolveStreak}</b>일 연속 🏃 깃허브 커밋{" "}
+          <b>{CommitStreak}</b>일 연속 🚨🔥
+        </span>
       </div>
     </div>
   );
