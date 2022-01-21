@@ -74,7 +74,7 @@ function GrassChart(props) {
   };
 
   return (
-    <div style={{ height: 250, marginBottom: 150 }}>
+    <div style={{ height: 250, paddingBottom: "25vw" }}>
       {Grass && (
         <span className="app">
           <span style={{ fontSize: "2rem" }}>
@@ -130,40 +130,42 @@ function GrassChart(props) {
         </span>
       )}
       {Grass && (
-        <ResponsiveCalendar
-          data={Grass}
-          from={srtYear}
-          to={endYear}
-          emptyColor="#eeeeee"
-          colors={["#99FF99", "#32CD32", "#008000", "#006400"]}
-          margin={{
-            top: 50,
-            right: 5,
-            bottom: 0,
-            left: 5,
-          }}
-          align="top"
-          yearSpacing={60}
-          monthBorderWidth={1}
-          monthBorderColor="#000000"
-          monthLegendOffset={10}
-          dayBorderWidth={1}
-          dayBorderColor="#ffffff"
-          tooltip={CalTooltip}
-          legends={[
-            {
-              anchor: "bottom-right",
-              direction: "row",
-              translateY: 36,
-              itemCount: 4,
-              itemWidth: 34,
-              itemHeight: 36,
-              itemDirection: "top-to-bottom",
-            },
-          ]}
-        />
+        <div style={{ height: "18vw" }}>
+          <ResponsiveCalendar
+            data={Grass}
+            from={srtYear}
+            to={endYear}
+            emptyColor="#eeeeee"
+            colors={["#99FF99", "#32CD32", "#008000", "#006400"]}
+            margin={{
+              top: 20,
+              right: 5,
+              bottom: 0,
+              left: 5,
+            }}
+            align="bottom"
+            yearSpacing={60}
+            monthBorderWidth={1}
+            monthBorderColor="#000000"
+            monthLegendOffset={10}
+            dayBorderWidth={1}
+            dayBorderColor="#ffffff"
+            tooltip={CalTooltip}
+            legends={[
+              {
+                anchor: "bottom-right",
+                direction: "row",
+                translateY: 36,
+                itemCount: 4,
+                itemWidth: 34,
+                itemHeight: 36,
+                itemDirection: "top-to-bottom",
+              },
+            ]}
+          />
+        </div>
       )}
-      <div style={{textAlign: "center"}}>
+      <div style={{ textAlign: "center" }}>
         <span role="img" aria-label="text" title="">
           🔥 현재 백준 솔브 <b>{SolveStreak}</b>일 연속 🏃 깃허브 커밋{" "}
           <b>{CommitStreak}</b>일 연속 🚨🔥
