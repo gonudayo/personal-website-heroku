@@ -10,7 +10,14 @@ function Project(props) {
           <b>Projects</b>
         </div>
         <div style={{ width: "350px", marginBottom: 100, marginTop: 50 }}>
-          <div style={{ fontSize: "1.5rem" }}> 2021 개인 웹사이트 </div>
+          <div style={{ fontSize: "1.6rem" }}>
+            {" "}
+            2021 개인 웹사이트{" "}
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : node.js, React, MongoDB, Express.js, Python, AWS
+              Lambda, DynamoDB, Amazon EventBridge, Heroku, Netflify
+            </div>
+          </div>
           <br />
           <div style={{ fontSize: "1rem" }}>
             Heroku 배포{" "}
@@ -53,8 +60,12 @@ function Project(props) {
         </div>
 
         <div style={{ width: "350px", paddingBottom: 100 }}>
-          <div style={{ fontSize: "1.5rem" }}>
+          <div style={{ fontSize: "1.6rem" }}>
             2021 군장병 공개SW 온라인 해커톤 : 위드 밀리터리
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : node.js, React, MongoDB, Express.js, Amazon EC2,
+              Nginx, Slack, git, Postman, Figma
+            </div>
           </div>
           <br />
           <div style={{ textAlign: "left" }}>
@@ -66,8 +77,11 @@ function Project(props) {
         </div>
 
         <div style={{ width: "350px", paddingBottom: 150 }}>
-          <div style={{ fontSize: "1.5rem" }}>
+          <div style={{ fontSize: "1.6rem" }}>
             크롬 확장프로그램 : 유튜브 그만 봐
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : JavaScript, html, css
+            </div>
           </div>
           <br />
           <div style={{ fontSize: "1rem" }}>
@@ -106,7 +120,14 @@ function Project(props) {
             mariginBottom: 100,
           }}
         >
-          <div style={{ fontSize: "1.5rem" }}> 개인 웹사이트 프로젝트 </div>
+          <div style={{ fontSize: "1.6rem" }}>
+            {" "}
+            개인 웹사이트 프로젝트{" "}
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : node.js, React, MongoDB, Express.js, Python, AWS
+              Lambda, DynamoDB, Amazon EventBridge, Heroku, Netflify
+            </div>
+          </div>
           <br />
           <div style={{ fontSize: "1rem" }}>
             Heroku 배포{" "}
@@ -156,9 +177,13 @@ function Project(props) {
             marginBottom: 100,
           }}
         >
-          <div style={{ fontSize: "1.5rem" }}>
+          <div style={{ fontSize: "1.6rem" }}>
             군장병 공개SW 온라인 해커톤 :<br />
             위드 밀리터리
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : node.js, React, MongoDB, Express.js, Amazon EC2,
+              Nginx, Slack, git, Postman, Figma
+            </div>
           </div>
           <br />
           <div style={{ textAlign: "left" }}>
@@ -170,11 +195,15 @@ function Project(props) {
         </div>
 
         <div style={{ width: "405px", marginRight: 50, float: "left" }}>
-          <div style={{ fontSize: "1.5rem" }}>
+          <div style={{ fontSize: "1.6rem" }}>
             크롬 확장프로그램 :<br />
-            유튜브 그만 봐
+            유튜브 그만 봐!
+            <div style={{ fontSize: "1rem" }}>
+              *주요 기술 스택 : JavaScript, html, css
+            </div>
           </div>
           <br />
+
           <div style={{ fontSize: "1rem" }}>
             <a
               href="https://chrome.google.com/webstore/detail/stop-watching-youtube/fapfmppbpbgkgbiaeiemppdapkgngajj"

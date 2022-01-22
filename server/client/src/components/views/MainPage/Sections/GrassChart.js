@@ -102,8 +102,8 @@ function GrassChart(props) {
           <br />
           <span>
             <b>{Year}년</b> 총 활동 지수 :{" "}
-            {Commits[Year - 2021] + Solves[Year - 2021]} ( 깃허브 커밋 수 :{" "}
-            {Commits[Year - 2021]}, 백준 솔브 수 : {Solves[Year - 2021]} )
+            {Commits[Year - 2021] + Solves[Year - 2021]} ( 깃허브 커밋 :{" "}
+            {Commits[Year - 2021]}, 백준 솔브 : {Solves[Year - 2021]} )
           </span>
           <div>
             <label>
