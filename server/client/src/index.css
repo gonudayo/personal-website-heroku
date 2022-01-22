@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.logo {
+  width: auto;
+  height: 1.5rem;
+}
+
 a:link {
   color: black;
 }
