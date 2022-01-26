@@ -26,11 +26,12 @@ const get = {
       } catch (error) {}
     };
 
-    await getCommitB().then(async (html) => {
+    await getCommitA().then(async (html) => {
       const $ = cheerio.load(html.data);
       let parentTag = $("rect");
 
       await parentTag.each(function (i, elem) {
+		  if(i === 365) return false;
         let day = $(this).attr("data-date");
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
@@ -44,11 +45,12 @@ const get = {
       });
     });
 
-    await getCommitA().then(async (html) => {
+    await getCommitB().then(async (html) => {
       const $ = cheerio.load(html.data);
       let parentTag = $("rect");
 
       await parentTag.each(function (i, elem) {
+		if(i === 365) return false;
         let day = $(this).attr("data-date");
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
