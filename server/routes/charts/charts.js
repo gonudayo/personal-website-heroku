@@ -36,7 +36,7 @@ const get = {
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
           map1.set(day, { value: count, commit: count, solve: 0 });
-          totalCommit[1] += count;
+          totalCommit[0] += count;
           nowStreak += 1;
         } else {
           nowStreak = 0;
@@ -55,7 +55,7 @@ const get = {
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
           map1.set(day, { value: count, commit: count, solve: 0 });
-          totalCommit[0] += count;
+          totalCommit[1] += count;
           nowStreak += 1;
         } else {
           nowStreak = 0;
