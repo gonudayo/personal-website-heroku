@@ -26,7 +26,7 @@ function Project(props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              (Current Site)
+              (현재 버전)
             </a>
           </div>
           <br />
@@ -136,7 +136,7 @@ function Project(props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              (Current Site)
+              (현재 버전)
             </a>
           </div>
           <br />
