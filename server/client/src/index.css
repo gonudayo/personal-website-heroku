@@ -23,3 +23,12 @@ a:hover {
 a:active {
   color: black;
 }
+
+::-moz-selection {
+  background: #ced4da;
+  color: #000000;
+}
+::selection {
+  background: #ced4da;
+  color: #000000;
+}
