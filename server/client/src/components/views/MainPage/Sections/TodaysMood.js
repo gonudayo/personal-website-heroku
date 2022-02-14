@@ -111,16 +111,23 @@ function TodaysMood(props) {
       <div style={{ fontSize: "2rem" }}>
         <b>오늘의 기분 지수</b>
         <br />
-        <div style={{ fontSize: "5rem", height: "7.5rem" }}>{emoji(TMP)}</div>
-        <progress
-          style={{
-            width: "15rem",
-            height: "2rem",
-          }}
-          value={TMP}
-          max="100"
-        ></progress>{" "}
-        {TMP}
+        <div
+          className="stop-dragging"
+          style={{ fontSize: "5rem", height: "7.5rem" }}
+        >
+          {emoji(TMP)}
+        </div>
+        <div className="stop-dragging">
+          <progress
+            style={{
+              width: "15rem",
+              height: "2rem",
+            }}
+            value={TMP}
+            max="100"
+          ></progress>{" "}
+          {TMP}
+        </div>
       </div>
       <details style={{ width: "360px", textAlign: "left" }}>
         <summary>산정 방식</summary>
@@ -159,8 +166,9 @@ function TodaysMood(props) {
           <br />
           <div>
             <br />
-            <b>*</b> 재미로 만들었기 때문에, 실제와는 차이가 있을 수 있습니다. 
-			<br />근데 조금 정확합니다.
+            <b>*</b> 재미로 만들었기 때문에, 실제와는 차이가 있을 수 있습니다.
+            <br />
+            근데 조금 정확합니다.
           </div>
         </div>
       </details>

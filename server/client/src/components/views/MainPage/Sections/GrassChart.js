@@ -99,7 +99,9 @@ function GrassChart(props) {
             </b>
             <b>활동 내역 차트</b>
           </span>
-          <br />
+          <div className="stop-dragging">
+            <br />
+          </div>
           <span>
             <b>{Year}년</b> 총 활동 지수 :{" "}
             {Commits[Year - 2021] + Solves[Year - 2021]} ( 깃허브 커밋 :{" "}
@@ -130,7 +132,7 @@ function GrassChart(props) {
         </span>
       )}
       {Grass && (
-        <div style={{ height: "18vw" }}>
+        <div className="stop-dragging" style={{ height: "18vw" }}>
           <ResponsiveCalendar
             data={Grass}
             from={srtYear}
@@ -166,7 +168,11 @@ function GrassChart(props) {
         </div>
       )}
       <div style={{ textAlign: "center" }}>
-        <span role="img" aria-label="text" title="백준 solved.ac 기준 (오전 6시 날짜 변경)">
+        <span
+          role="img"
+          aria-label="text"
+          title="백준 solved.ac 기준 (오전 6시 날짜 변경)"
+        >
           🔥 현재 백준 솔브 <b>{SolveStreak}</b>일 연속 🏃 깃허브 커밋{" "}
           <b>{CommitStreak}</b>일 연속 🚨🔥
         </span>
