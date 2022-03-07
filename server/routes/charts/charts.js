@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const client = require("cheerio-httpcli");
 const { Record } = require("../../models/Record");
 
 const get = {
@@ -31,7 +32,7 @@ const get = {
       let parentTag = $("rect");
 
       await parentTag.each(function (i, elem) {
-		  if(i === 365) return false;
+        if (i === 365) return false;
         let day = $(this).attr("data-date");
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
@@ -50,7 +51,7 @@ const get = {
       let parentTag = $("rect");
 
       await parentTag.each(function (i, elem) {
-		if(i === 365) return false;
+        if (i === 365) return false;
         let day = $(this).attr("data-date");
         let count = $(this).attr("data-count") * 1;
         if (!isNaN(count) && count != 0) {
@@ -62,15 +63,7 @@ const get = {
         }
         maxStreak = Math.max(nowStreak, maxStreak);
       });
-
-      const getSolved = async () => {
-        try {
-          return await axios.get("https://www.acmicpc.net/user/gonudayo");
-        } catch (error) {}
-      };
-
-      await getSolved().then((html) => {
-        const $ = cheerio.load(html.data);
+      client.fetch("https://www.acmicpc.net/user/gonudayo", {}, (err, $) => {
         let parentTag = $("script");
         var str = parentTag[27].children[0].data;
         var strSplit = str.split(" ");
@@ -101,20 +94,18 @@ const get = {
           solve: value.solve,
         }));
 
-        // api 결과 값 확인
+        // api 결과 확인
         // for (var i in array) {
         // 	console.log(array[i]);
         // }
 
-        return res
-          .status(200)
-          .json({
-            success: true,
-            arr: array,
-            commits: totalCommit,
-            solves: totalSolve,
-            maxStreak: maxStreak,
-          });
+        return res.status(200).json({
+          success: true,
+          arr: array,
+          commits: totalCommit,
+          solves: totalSolve,
+          maxStreak: maxStreak,
+        });
       });
     });
   },
