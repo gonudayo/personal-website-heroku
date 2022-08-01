@@ -65,7 +65,7 @@ const get = {
       });
       client.fetch("https://www.acmicpc.net/user/gonudayo", {}, (err, $) => {
         let parentTag = $("script");
-        var str = parentTag[27].children[0].data;
+        var str = parentTag[25].children[0].data;
         var strSplit = str.split(" ");
         var str = strSplit[9];
 
