@@ -138,7 +138,7 @@ function GrassChart(props) {
             from={srtYear}
             to={endYear}
             emptyColor="#eeeeee"
-            colors={["#99FF99", "#32CD32", "#008000", "#006400"]}
+            colors={["#A1E4AC", "#78CB94", "#4EB17C", "#007950"]}
             margin={{
               top: 20,
               right: 5,
