@@ -68,6 +68,16 @@ function Project(props) {
             </div>
           </div>
           <br />
+          <div style={{ fontSize: "1rem" }}>
+            <a
+              href="https://with-military.run.goorm.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              위드 밀리터리 바로가기
+            </a>
+          </div>
+          <br />
           <div style={{ textAlign: "left" }}>
             <RepoCard
               username="osamhack2021"
@@ -184,6 +194,16 @@ function Project(props) {
               *주요 기술 스택 : node.js, React, MongoDB, Express.js, Amazon EC2,
               Nginx, Slack, git, Postman, Figma
             </div>
+          </div>
+          <br />
+          <div style={{ fontSize: "1rem" }}>
+            <a
+              href="https://with-military.run.goorm.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              위드 밀리터리 바로가기
+            </a>
           </div>
           <br />
           <div style={{ textAlign: "left" }}>
