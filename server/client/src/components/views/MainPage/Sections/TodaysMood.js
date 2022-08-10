@@ -99,7 +99,7 @@ function TodaysMood(props) {
       ((Stock +
         Result.point +
         Math.abs(Result.home.score - Result.away.score) -
-        (Math.abs(Weather.temperature - 17) + Math.abs(Weather.humidity - 50)) *
+        (Math.abs(Weather.temperature - 20) + Math.abs(Weather.humidity - 50)) *
           0.3) /
         350) *
         100
@@ -157,12 +157,12 @@ function TodaysMood(props) {
           c. 가장 최근의 아스날 경기일로부터 경과일
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;{" "}
-          {Result.elapsed && <span>{Result.elapsed} 일</span>}
+          {Result.elapsed && <b>{Math.floor(Result.elapsed)} 일</b>}
           <br />
           d. 현재 날씨 지수
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;(|<b>{Weather.temperature}°</b>(체감 온도) -
-          17| + |<b>{Weather.humidity}%</b>(습도) - 50|) * 0.3
+          20| + |<b>{Weather.humidity}%</b>(습도) - 50|) * 0.3
           <br />
           <div>
             <br />
