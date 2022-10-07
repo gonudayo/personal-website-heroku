@@ -93,8 +93,8 @@ function AboutMe(props) {
             />{" "}
             <img
               className="logo"
-              alt="javascript"
-              src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"
+              alt="mongodb"
+              src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"
             />{" "}
             <img
               className="logo"
@@ -109,13 +109,24 @@ function AboutMe(props) {
             <br />
             <img
               className="logo"
-              alt="amazonaws"
-              src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white"
+              alt="spring"
+              src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white"
             />{" "}
             <img
               className="logo"
-              alt="mongodb"
-              src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"
+              alt="mysql"
+              src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"
+            />{" "}
+            <img
+              className="logo"
+              alt="react"
+              src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"
+            />{" "}
+            <br />
+            <img
+              className="logo"
+              alt="amazonaws"
+              src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white"
             />{" "}
             <img
               className="logo"
@@ -124,8 +135,8 @@ function AboutMe(props) {
             />{" "}
             <img
               className="logo"
-              alt="ubuntu"
-              src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white"
+              alt="linux"
+              src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=white"
             />
             <br />
           </p>
