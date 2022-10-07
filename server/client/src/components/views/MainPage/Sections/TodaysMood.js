@@ -101,7 +101,7 @@ function TodaysMood(props) {
         Math.abs(Result.home.score - Result.away.score) -
         (Math.abs(Weather.temperature - 20) + Math.abs(Weather.humidity - 50)) *
           0.3) /
-        350) *
+        150) *
         100
     )
   );
@@ -133,7 +133,7 @@ function TodaysMood(props) {
         <summary>산정 방식</summary>
         <br />
         <div>
-          <b>오늘의 기분 지수</b> = ((a + b / c - d) / 350 ) * 100
+          <b>오늘의 기분 지수</b> = ((a + b / c - d) / 150 ) * 100
           <br />
           a. 보유하고 있는 주식의 현재 주가 <b>${Stock}</b>
           <br />
