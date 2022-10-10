@@ -169,19 +169,19 @@ function GrassChart(props) {
       )}
       <div style={{ textAlign: "center" }}>
         <span role="img" aria-label="text" title="">
-          🔥 최대 <b>{SolveStreak}</b>일 연속 백준 솔브 🏃 최대{" "}
+          🔥 최대 <b>{SolveStreak}</b>일 연속 백준 솔브 🏃 {" "}
           <b>{CommitStreak}</b>일 연속 깃허브 커밋 🚨🔥
         </span>
         <div>
-          백준{" "}
+          (날짜 변경 기준 :
+          백준 {" "}
           <a
             href="https://solved.ac/profile/gonudayo"
             target="_blank"
             rel="noopener noreferrer"
           >
-            solved.ac
-          </a>{" "}
-          기준 : 아침 6시 날짜 변경 / 깃허브 : 밤 12시 날짜 변경
+            06시
+          </a>{" "}, 깃허브 00시)
         </div>
       </div>
     </div>
