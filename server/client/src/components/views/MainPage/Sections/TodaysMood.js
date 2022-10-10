@@ -101,7 +101,7 @@ function TodaysMood(props) {
         Math.abs(Result.home.score - Result.away.score) -
         (Math.abs(Weather.temperature - 20) + Math.abs(Weather.humidity - 50)) *
           0.3) /
-        150) *
+        200) *
         100
     )
   );
