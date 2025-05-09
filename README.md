@@ -24,6 +24,6 @@
 * **데이터베이스**
     * MongoDB (일일 백준/GitHub 통계 저장을 위한 NoSQL 데이터베이스)
 
-## 3. 저장소
+## 3. 관련 저장소
 
 * **AWS Lambda:** [gonudayo/personal-website-aws](https://github.com/gonudayo/personal-website-aws)
